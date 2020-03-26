@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "动态增加控件", "..\动态增加控件\动态增加控件.csproj", "{886A0F70-A5C1-42C0-85EC-9D32383C78E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "通过后台代码动态设置控件在Grid里面的位置", "..\通过后台代码动态设置控件在Grid里面的位置\通过后台代码动态设置控件在Grid里面的位置.csproj", "{5045B40E-F586-4792-9EB8-421B820FEC87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "容器的嵌套", "..\容器的嵌套\容器的嵌套.csproj", "{9B6520FD-88C0-421D-A72B-F16FC28985A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{886A0F70-A5C1-42C0-85EC-9D32383C78E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886A0F70-A5C1-42C0-85EC-9D32383C78E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886A0F70-A5C1-42C0-85EC-9D32383C78E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886A0F70-A5C1-42C0-85EC-9D32383C78E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5045B40E-F586-4792-9EB8-421B820FEC87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5045B40E-F586-4792-9EB8-421B820FEC87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5045B40E-F586-4792-9EB8-421B820FEC87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5045B40E-F586-4792-9EB8-421B820FEC87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6520FD-88C0-421D-A72B-F16FC28985A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6520FD-88C0-421D-A72B-F16FC28985A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6520FD-88C0-421D-A72B-F16FC28985A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6520FD-88C0-421D-A72B-F16FC28985A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AD077AB-DD46-4E4A-B8A5-2663B62B166F}
+	EndGlobalSection
+EndGlobal

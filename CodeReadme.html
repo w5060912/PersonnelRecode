@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Markdown file</title>
+</head>
+<body>
+
+    <h1 id="markdown-file">Markdown file</h1>
+<h2 id="section">本文件旨在记录在程序编写过程中，想到的一些好方法以及未解决某些问题而寻找到的一些好的方法</h2>
+<h5 id="wpfcombobox">1.WPF应用程序中ComboBox控件绑定数据库的方法:</h5>
+<p><code>&lt;p&gt;&lt;a&gt; href=&quot;/home&quot; title=&quot;WPF应用程序中ComboBox控件绑定数据库的方法&quot;&gt;&lt;/a&gt;&lt;/p&gt;</code></p>
+<h6 id="section-1">代码区:</h6>
+<pre><code class="language-将ComboBox控件绑定到PersonelInwork/AttendanceStatusTable">  &lt;p&gt;&lt;a&gt; CombAttendanceStatus.ItemsSource = RecordDataoptin.GetAttendanceStatus().DefaultView; &lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a&gt; CombAttendanceStatus.DisplayMemberPath = &quot;AttendanceStatus&quot;; &lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a&gt; CombAttendanceStatus.SelectedIndex = 3; &lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h6 id="section-2"><em>通过这种个方法，可以将对应数据表里面的数据显示在列表选项框里面.还可以定义第一个要显示的项目。</em>*</h6>
+<h5 id="wpfcombobox-1">2.在WPF应用程序中实时获取ComboBox控件中选择的项目：</h5>
+<pre><code>private void CombAttendanceStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+           {
+           
+  DataRowView view = (DataRowView)CombAttendanceStatus.SelectedItem;
+           string selectItem = view.Row[&quot;AttendanceStatus&quot;].ToString();
+
+           if (selectItem.Equals(&quot;有加班&quot;))
+               {
+               txbWorkOvertime.IsEnabled = true;
+               }
+           else
+               {
+               txbWorkOvertime.IsEnabled = false;
+               }
+
+           AttendanceStatus = selectItem;
+           }
+</code></pre>
+<h6 id="datarowview"><em>因为绑定是数据库，所以实时选择项目的类型是DataRowView</em>*</h6>
+<h4 id="datagrid">通过后台代码设置DataGrid中的类并绑定数据</h4>
+<pre><code>  DataGridTextColumn DGTCattendancedate = new DataGridTextColumn();
+  DGTCattendancedate.Header = &quot;出勤日期&quot;;
+  DGTCattendancedate.Width = 180;
+  DGTCattendancedate.IsReadOnly = true;
+  DGTCattendancedate.Binding = new Binding(&quot;AttendanceDate&quot;);
+  DGTCattendancedate.Binding.StringFormat = &quot;yyyy年/MM月/dd日&quot;;
+  DGview.Columns.Add(DGTCattendancedate);
+
+
+  DataGridComboBoxColumn DGTCattendancestatus = new DataGridComboBoxColumn();
+  DGTCattendancestatus.Header = &quot;出勤状态&quot;;
+  DGTCattendancestatus.Width = 120;
+  DGTCattendancestatus.ItemsSource = LSDGComboxColumnsItems;
+  DGTCattendancestatus.SelectedValueBinding = new Binding(&quot;AttendanceStatus&quot;); 
+  DGview.Columns.Add(DGTCattendancestatus);
+
+  DataGridTextColumn DGTCworkovertime = new DataGridTextColumn();
+  DGTCworkovertime.Header = &quot;加班时长&quot;;
+  DGTCworkovertime.Width = 80;
+  DGTCworkovertime.Binding = new Binding(&quot;WorkOfTime&quot;);
+  DGview.Columns.Add(DGTCworkovertime);
+
+  DataGridTextColumn DGTChelper = new DataGridTextColumn();
+  DGTChelper.Header = &quot;帮忙对象&quot;;
+  DGTChelper.Width = 120;
+  DGTChelper.Binding = new Binding(&quot;Helper&quot;);
+  DGview.Columns.Add(DGTChelper);
+
+  DataGridTextColumn DGTCattendanceremark = new DataGridTextColumn();
+  DGTCattendanceremark.Header = &quot;出勤备注&quot;;
+  DGTCattendanceremark.Width = 250;
+  DGTCattendanceremark.Binding = new Binding(&quot;AttendanceRemark&quot;);
+  DGview.Columns.Add(DGTCattendanceremark);
+
+</code></pre>
+<h6 id="datagriddatagrid"><em>通过这种方法可以动态的设置DataGrid中的列，并绑定数据，实现在一个dataGrid里面显示不同的内容</em></h6>
+<h6 id="section-3"></h6>
+<p>DataGridTextColumn 列在进入编辑状态前的控件是TextBlock,进入编辑状态后
+会变成TextBox
+在给单元格赋值的时要注意这个问题
+DataGrid直接给某个单元格赋值的代码:</p>
+<pre><code>   //修改当前行里面的加班时长的值
+    (DGresultshow.Columns[2].GetCellContent(DGresultshow.Items[rowIndex])
+    as TextBlock).SetValue(TextBlock.TextProperty, changefrm.Workovertime);
+</code></pre>
+<p>//修改当前行里面的出勤状态的值
+(DGresultshow.Columns[1].GetCellContent(DGresultshow.Items[rowIndex])
+as ComboBox).SelectedValue = changefrm.Attstatus;</p>
+<pre><code>  //修改当前行里面的加班时长的值
+(DGresultshow.Columns[2].GetCellContent(DGresultshow.Items[rowIndex])
+as TextBox).SetValue(TextBox.TextProperty, changefrm.Workovertime);
+
+</code></pre>
+<h4 id="datagrid.columns0.getcellcontentdatagrid.items0-as">格式：(DataGrid实例.Columns[列号(从左往右，从0开始)].GetCellContent(DataGrid实例.Items[行号(从上往下，从0开始)]) as 对应单元格的控件名称).属性=值</h4>
+<h2 id="datagrid-1">想要在DataGrid里面获取隔行换色效果,:</h2>
+<pre><code>&lt;Setter Property=&quot;AlternationCount&quot; Value=&quot;2&quot;/&gt; &lt;!-- 想要实现隔行换色就得修改这个属性--&gt;
+</code></pre>
+
+
+</body>
+</html>

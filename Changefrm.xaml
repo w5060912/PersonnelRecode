@@ -1,0 +1,60 @@
+﻿<Window x:Class="PersonnelRecode.Changefrm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title="Changefrm" FontSize="18" Height="350" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded" Closing="Window_Closing" >
+    <Window.Resources>
+        <Color x:Key="Color1">#FFA9DC6C</Color>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFA5EC0E" Offset="0.006"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="{DynamicResource Color1}" Offset="0.955"/>
+                <GradientStop Color="#FF6DE4B3" Offset="0.504"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" x:Name="txkdatetable" Text="日期:" Margin="5,10,5,10" TextAlignment="Center"  />
+        <TextBlock Grid.Column="2" x:Name="txkdateshow" Text="2020年02月13日" Margin="5,10,5,10" TextAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="txbstatus" Text="原出勤状态" Margin="5,10,5,10" TextAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Name="txbstatusshow" Text="正常出勤" Margin="5,10,5,10" TextAlignment="Center"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="txkstatusortype" Text="出勤状态:" Margin="5,10,5,10" TextAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="2" x:Name="combstatusortype" Margin="1,5,1,5"  Background="{x:Null}" SelectionChanged="combstatusortype_SelectionChanged"/>
+        
+        <TextBlock Grid.Row="3" Grid.Column="1" x:Name="txkworkovertimeoramount" Text="加班时长:" Margin="5,10,5,10" TextAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="2" x:Name="txbworkovertimeoramount" Text="0" InputMethod.IsInputMethodEnabled="False" Margin="1,5,1,5"  Background="{x:Null}" LostFocus="txbworkovertimeoramount_LostFocus"  />
+        
+        <TextBlock Grid.Row="4" Grid.Column="1" Name="txkhelperorsource" Text="帮忙对象:" Margin="5,10,5,10" TextAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="2" x:Name="txbhelperorsource" Text="未帮忙" Margin="1,5,1,5" Background="{x:Null}" LostFocus="txbhelperorsource_LostFocus"/>
+        
+        <TextBlock Grid.Row="5" Grid.Column="1" x:Name="txkremark" Text="备注:" Margin="5,10,5,10" TextAlignment="Center" />
+        <TextBox Grid.Row="5" Grid.Column="2" x:Name="txbremark" Text="备注" Margin="1,5,1,5" Background="{x:Null}" LostFocus="txbremark_LostFocus" />
+        
+        <Button Grid.Row="6" Grid.Column="1" x:Name="btnconfirm" Content="确认" Margin="5,8,5,8"  Click="btnconfirm_Click" Background="{x:Null}"/>
+        <Button Grid.Row="6" Grid.Column="2" x:Name="btncancel" Content="取消" Margin="5,8,5,8" Click="btncancel_Click" IsDefault="True" />
+
+    </Grid>
+</Window>

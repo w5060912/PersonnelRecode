@@ -1,0 +1,147 @@
+﻿<Window x:Class="PersonnelRecode.modificationWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title=" 修改" Height="600" Width="1000" Loaded="Window_Loaded" 
+        SizeChanged="Window_SizeChanged"  
+        Icon="pack://siteoforigin:,,,/ICON/pencil_edit_128px_1223089_easyicon.net.ico" 
+        WindowState="Normal" WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="600" 
+        MaxWidth="1000" MaxHeight="600" ResizeMode="NoResize"  FontSize="18" Closed="Window_Closed">
+    <Window.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="85,9,85,5"/>
+            <Setter Property="GroupName" Value="Itemselect"/>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+
+            <ColumnDefinition Width="637*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="30" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Name="GridTOP">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF419C02" Offset="0"/>
+                    <GradientStop Color="#FFF32302" Offset="1"/>
+                    <GradientStop Color="#FF02C95D" Offset="0.5"/>
+                    <GradientStop Color="#FF9D9D9D" Offset="0.617"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Background="Yellow">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.ColumnSpan="2" Text="  第一步: 输入查询日期:" TextAlignment="Center"  Margin="5,5,5,5" />
+                <TextBlock Grid.Row="1" Text="开始日期: " FontSize="19" Margin="5,5,5,5"/>
+                <DatePicker Name="StartDP" Grid.Column="1" Grid.Row="1"  />
+                <TextBlock Grid.Row="2" Text="结束日期:" FontSize="19" Margin="5,5,5,5"/>
+                <DatePicker Grid.Row="2" Grid.Column="1" Name="EndDP"/>
+
+            </Grid>
+
+            <StackPanel x:Name="SPitemselect" Grid.Column="1" Background="LawnGreen">
+                <RadioButton x:Name="radAttendanceselect" Content="修改出勤" IsChecked="True"/>
+                <RadioButton x:Name="radIncomeselect" Content="修改进账"/>
+                <RadioButton x:Name="radExpendselect" Content="修改支出"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="-57.529" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF39F103"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FF03ECCC" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Button x:Name="btnSerch" Margin="38,30,38,30" Height="55" FontSize="32" Click="btnSerch_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="-39.289" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#FFF1F105" Offset="0"/>
+                            <GradientStop Color="#FFF74604" Offset="0.999"/>
+                            <GradientStop Color="#FF66F105" Offset="0.48"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    查询
+                </Button>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name="DGresultshow" Grid.Row="1" Grid.RowSpan="3" 
+                  Background="Azure" CanUserAddRows="False" AutoGenerateColumns="False" 
+                  BeginningEdit="DGresultshow_BeginningEdit"  CellEditEnding="DGresultshow_CellEditEnding"  
+                   FontSize="18Px" RowHeight="30" >
+            <!--<DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Height" Value="20"/>
+                </Style>
+            </DataGrid.RowStyle>-->
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+
+
+
+
+        <!--底部状态栏设置-->
+        <StatusBar Grid.Row="4" Name="SBmessage">
+            <StatusBarItem>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="350"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="tbCountShow" Text=" 共查询到  条记录"/>
+                    <TextBlock Name="lbSpace" Text=" " Grid.Column="1" Width="150"/>
+                    <TextBlock Name="lbSpace1" Text="    " Grid.Column="2" Width="150"/>
+                    <TextBlock x:Name="tbDatetimeShow" Grid.Column="3" Text="现在时间是:" />
+                </Grid>
+
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>

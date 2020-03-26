@@ -1,0 +1,55 @@
+﻿<Window x:Class="PersonnelRecode.Managefrm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title="管理" Height="291.513" Width="436.531" FontSize="30" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <EventSetter Event="Click" Handler="Button_Click"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid >
+       
+
+        <StackPanel Grid.ColumnSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFF9EE03" Offset="0"/>
+                    <GradientStop Color="#FF01E816" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button x:Name="btnAlter" Margin="35,50,35,5" Content="转到修改窗口" Height="63" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnViewAlterHistory" Margin="35,15,35,25" Content="转到修改记录查看窗口" Height="69" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                        <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

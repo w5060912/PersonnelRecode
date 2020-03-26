@@ -1,0 +1,13 @@
+ Grid控件（网格）可以用来将窗口进行分割，Rowspan可以定义跨行，ColumnSpan可以定义跨列
+ Grid.row可以定义控件在哪一行，Grid.column可以控件在哪一列
+ Margin可以定义子控件四周与父控件四周的距离
+ Grid.SetRow（控件实例名，行号）可以在后台代码里动态设置控件在Grid里面的行号
+Grid.SetColumn(btn,j);//后台设置子控件实例在Grid里面的列号
+容器之间是可以相互嵌套的
+
+菜单分为普通菜单(Menu)与上下文菜单(ContexMenu)
+Menu下可以放置多个MenuItem(放在MenuItem)
+MenuItem下又可以放置多个MenuItem,属性Header显示内容
+
+ToolBar控件(工具栏)放入其中的控件都有新的默认外观
+显示图标的方法：在Button的Content里面嵌套Image

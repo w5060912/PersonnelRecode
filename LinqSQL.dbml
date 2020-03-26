@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PersonInwork" Class="LinqSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=T1GASN7AC1P6KHD;Initial Catalog=PersonInwork;Integrated Security=True" SettingsObjectName="PersonnelRecode.Properties.Settings" SettingsPropertyName="PersonInworkConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.T_AttendanceRevisionRecrd" Member="T_AttendanceRevisionRecrd">
+    <Type Name="T_AttendanceRevisionRecrd">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AttendanceDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AttendanceOptions" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Oldvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Newvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_ExpendRevisionRecord" Member="T_ExpendRevisionRecord">
+    <Type Name="T_ExpendRevisionRecord">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ExpendId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExpendDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ExpendOptions" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Oldvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Newvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_IncomeRevisionRecord" Member="T_IncomeRevisionRecord">
+    <Type Name="T_IncomeRevisionRecord">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ChangeTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeOptions" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Oldvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Newvalue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

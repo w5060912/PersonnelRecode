@@ -7,11 +7,11 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("PersonnelRecode")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("个人记账宝")]
+[assembly: AssemblyDescription("用于个人记录、查询、修改出勤/进账/出账")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("微软中国")]
-[assembly: AssemblyProduct("PersonnelRecode")]
+[assembly: AssemblyProduct("个人记账宝")]
 [assembly: AssemblyCopyright("Copyright © 微软中国 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -51,5 +51,6 @@ using System.Windows;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.9.0.2")]
+[assembly: AssemblyFileVersion("1.9.0.2")]
+[assembly: NeutralResourcesLanguage("zh-CN")]

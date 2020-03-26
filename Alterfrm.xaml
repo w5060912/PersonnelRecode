@@ -1,0 +1,101 @@
+﻿<Window x:Class="PersonnelRecode.Alterfrm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+              xmlns:metro="http://schemas.microsoft.com/xps/2005/06"
+        mc:Ignorable="d"
+        Title="                                                                                                    修改 "  Height="600" Width="800" 
+        Loaded="Window_Loaded" Closed="Window_Closed">
+    <Window.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <!--<EventSetter Event="Checked" Handler="CheckBox_Checked"/>
+            <EventSetter Event="Unchecked" Handler="CheckBox_Unchecked"/>-->
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="GroupName" Value="select"/>
+            <Setter Property="Margin" Value="1,29,1,5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <EventSetter Event="Checked" Handler="RadioButton_Checked"/>
+            <Setter Property="Width" Value="65"/>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Margin" Value="5,33,5,33" />
+           
+        </Style>
+        <Style TargetType="DatePicker" >
+            <Setter Property="Margin" Value="10,33,10,33"/>
+           
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="89"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="开始日期："/>
+            <DatePicker Name="DPStartddate" Grid.Column="1" />
+            <Label Content="结束日期" Grid.Row="1" />
+            <DatePicker Name="DPEnddate" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+            
+           
+
+
+      
+
+        <StackPanel  Grid.Column="1" Name="SPItemSelect">
+            <RadioButton  Name="radbtnAttendanceselect" Content="出勤修改" IsChecked="True"  />
+            <RadioButton Name="radbtnIncomeselect" Content="进账修改"/>
+            <RadioButton Name="radbtnExpend" Content="支出修改"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Name="SPSerch">
+            <Button Name="btnSerch"  Height="35"  Margin="40,75,40,65" Click="btnSerch_Click">
+                查询
+            </Button>
+        </StackPanel>
+
+        <DataGrid x:Name="DGview" FontSize="20" Grid.Row="1" Grid.ColumnSpan="3" CanUserAddRows="False" AutoGenerateColumns="False" InputMethod.IsInputMethodEnabled="False" >
+            
+        </DataGrid>
+        <StatusBar Grid.Row="2" >
+            <StatusBarItem>
+                <TextBlock x:Name="SBtxbinfo" Text="    已查询到 条记录"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            
+        </StackPanel>
+       
+      
+       
+
+    </Grid>
+
+</Window> 

@@ -1,0 +1,128 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="PersonnelRecode.Welcomefrm"
+        mc:Ignorable="d"
+        Title="欢迎使用记账宝" Height="600" Width="680" Background ="AliceBlue" FontSize="20" Loaded="Window_Loaded" ResizeMode="NoResize" >
+
+    <Window.Resources>
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+            <Ellipse Name="OuterRing" Width="75" Height="75" Fill="DarkGreen">
+
+            </Ellipse>
+        </ControlTemplate>
+        
+    </Window.Resources>
+
+
+    <Grid Margin="0,0,16,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <DockPanel  Grid.RowSpan="6" Background="LightCyan"/>
+
+        <StackPanel Grid.Row="2"  Grid.RowSpan="2" >
+            <Button x:Name="btnRecord" Content="记录" Margin="15,15" Click="btnRecord_Click" />
+            <Button x:Name="btnSerch" Content="查询" Margin="15,15" Click="BtnSerch_Click"/>
+            <Button x:Name="btnAmend" Content="管理" Margin="15,15" Click="btnAmend_Click"/>
+        </StackPanel>
+
+        <GroupBox Grid.Column="1" Header="设定统计起始日期：" >
+            <StackPanel Orientation="Horizontal">
+                <DatePicker Name="startDP" Margin="10,11,0,11" Width="194" FontSize="20"  Style="{StaticResource PickerStyle }">
+                     
+                </DatePicker>
+                <Button Name="btnStartDateSetting"   Margin="225,0.684,0,0.848" Width="60" Height="60" BorderThickness="0"  Click="btnStartDateSetting_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                    </Button.BorderBrush>
+                    
+
+                    <Ellipse Height="50" Width="50" Stroke="Black"  >
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="settings_607px_1229017_easyicon.net.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                </Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="设置进账来源(班组长):"  Grid.Row="1"  Margin="0" >
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txbIncomeSource" Text="进账来源(班组长)" Margin="5,15,0,15" Width="194" MouseDoubleClick="txbIncomeSource_MouseDoubleClick" LostFocus="txbIncomeSource_LostFocus">
+                    
+                </TextBox>
+
+                <Button x:Name="btnIncomeSourceSetting"  Width="60" Height="60"  Margin="225,0,684,0" Click="btnIncomeSourceSetting_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+                            <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="#FF707070" Opacity="0"/>
+                    </Button.BorderBrush>
+                    <Ellipse Height="50" Width="50" Stroke="Black"  >
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Settings_628px_1183667_easyicon.net.png"/>
+                        </Ellipse.Fill>
+
+                    </Ellipse>
+                </Button>
+            </StackPanel>
+                
+                
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Header="出勤统计:" Grid.Row="2" Margin="0,0,0,-20"  Background="Yellow">
+            <TextBlock x:Name="txbAttCountShow" >
+                
+            </TextBlock>
+
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="进账统计:"  Grid.Row="3"  Margin="0,15,0,-66"  Background="LawnGreen">
+            <DataGrid x:Name="dgincomeshow"  CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="进账来源" Width="110" Binding="{Binding IncomeSource}"/>
+                    <DataGridTextColumn Header="进账次数"  Width="110" Binding="{Binding IncomeNumberCount}"/>
+                    <DataGridTextColumn Header="总金额"  Width="110" Binding="{Binding IncomeAmountCount,StringFormat=C}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="出账统计:"  Margin="0,-24,0,0" Grid.Row="5"   Background="Gainsboro">
+            <TextBlock x:Name="txbExpendCountShow"></TextBlock>
+        </GroupBox>
+       
+
+
+
+
+
+    </Grid>
+
+
+</Window>

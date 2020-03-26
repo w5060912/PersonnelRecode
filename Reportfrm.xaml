@@ -1,0 +1,52 @@
+﻿<Window x:Class="PersonnelRecode.Reportfrm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title="Report" Height="700" Width="1300" WindowState="Maximized" Background ="AliceBlue" FontSize="20" ResizeMode="NoResize">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel   Grid.Row="0" >
+                <StackPanel  DockPanel.Dock="Top" Orientation="Horizontal" Background="Yellow" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="260"></ColumnDefinition>
+                            <ColumnDefinition  Width="260"></ColumnDefinition>
+                            <ColumnDefinition Width="260" ></ColumnDefinition>
+                            <ColumnDefinition  ></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="230" ></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Name="labViewAttcount" Content="出勤统计:"/>
+                        <Label Name="LabViewIncomecount" Content="进账统计:" Grid.Column="1" />
+                        <Label Name="LabViewOutcount" Content="支出统计:" Grid.Column="2"/>
+                        <Button x:Name="btnSaveasEXCEL" Grid.Column="6" Margin="5,5,10,5" >
+                            保存为电子表格
+                        </Button >
+                    </Grid>
+                     
+                </StackPanel>
+              
+            </DockPanel>
+            <DataGrid Grid.Row="2" x:Name="ViewDGV" >
+                
+            </DataGrid>
+            <StatusBar Grid.Row="2" Name="ViewSB">
+                <StatusBarItem>
+                    <TextBlock x:Name="txbPagenum" Text="当前第*页/共*页" Width="130"  />
+                   
+                </StatusBarItem>
+            </StatusBar>
+          
+        
+        </Grid>
+    </Grid>
+</Window>

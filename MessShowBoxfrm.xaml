@@ -1,0 +1,29 @@
+﻿<Window x:Class="PersonnelRecode.MessShowBoxfrm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title="MessShowBoxfrm" Height="380" Width="340" ResizeMode="NoResize" WindowStyle="ToolWindow"  >
+    <Grid >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox Background="AliceBlue" x:Name="txbMessShow" TextWrapping="Wrap" FontSize="23" />
+
+        <TextBlock Grid.Row="1" Name="tbktishi" FontSize="23" Background="SkyBlue" Foreground="White" />
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">
+            <Button Name="BtnOK" Width="87" Height="30" HorizontalAlignment="Left" Margin="35,5,50,5" Click="Btton_Click" IsDefault="True" FontSize="18">
+                确定
+            </Button>
+
+            <Button Name="BtnCancel" HorizontalAlignment="Right" Width="87" Height="30" Margin="15,5,195,5" Click="Btton_Click" FontSize="18">
+                取消
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
