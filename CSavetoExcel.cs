@@ -335,7 +335,7 @@ namespace PersonnelRecode
                 {
                 querydo.ShowExceptionMessage(ex);
                 _accomplish = false;
-                querydo.Dispose();
+               // querydo.Dispose();
                 }
 
 
@@ -455,7 +455,9 @@ namespace PersonnelRecode
         
         public void Dispose()
             {
-            throw new NotImplementedException();
+            fs.Close();
+            Table.
+
             }
         }
     }

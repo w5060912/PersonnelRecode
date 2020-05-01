@@ -102,11 +102,7 @@ namespace PersonnelRecode
         string alterItemname;
 
 
-        /// <summary>
-        /// 统计查询结果的条目数
-        /// </summary>
-        int resultCount;
-
+       
         /// <summary>
         /// 实例化数据处理类
         /// </summary>
@@ -171,6 +167,8 @@ namespace PersonnelRecode
         /// 21 DEBUG处理错误 
         /// </summary>
         int y = 0;
+
+        int resultCount;
 
 
         #endregion

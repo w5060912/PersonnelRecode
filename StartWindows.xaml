@@ -1,0 +1,39 @@
+﻿<Window x:Class="PersonnelRecode.StartWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonnelRecode"
+        mc:Ignorable="d"
+        Title="欢迎使用个人记账宝" Height="450" Width="800" ResizeMode="NoResize" Background="#FF20C536" 
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border >
+            <TextBlock Text="欢迎使用个人记账宝" FontSize="80" Margin="0" 
+             TextAlignment="Center" VerticalAlignment="Center" FontFamily="KaiTi"/>
+        </Border>
+
+        <Border Grid.Row="1" >
+            <StackPanel >
+                <TextBlock  Text="数据载入中，请稍后" FontSize="51" TextAlignment="Center" 
+                        VerticalAlignment="Top" />
+                <ProgressBar x:Name="PBLoadData" Margin="255,25,255,5" Height="35"
+                            Minimum="0" Maximum="5" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2">
+            <TextBlock x:Name="TxkStatusShow" Text="初始化对象" FontSize="30" 
+                       VerticalAlignment="Center" TextAlignment="Center"/>
+        </Border>
+                
+
+    </Grid>
+</Window>

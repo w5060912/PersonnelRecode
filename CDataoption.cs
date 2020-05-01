@@ -6,13 +6,33 @@ using System.Configuration;
 
 namespace PersonnelRecode
     {
-    internal class CDataoption : IDataoption, IDisposable
+    internal class CDataoption : IDataoption
         {
-        private string Procname = "";
-        private SqlCommand getcmd = new SqlCommand();
-        private SqlDataAdapter getda = new SqlDataAdapter();
-        private DataTable gettb = new DataTable();
+        private string Procname ;
+        private SqlCommand getcmd ;
+        private SqlDataAdapter getda;
+        private DataTable gettb ;
 
+
+        public CDataoption()
+            {
+               Procname = "";
+               getcmd = new SqlCommand();
+               getda = new SqlDataAdapter();
+               gettb = new DataTable();
+              _NomalAttendancedays = 0;
+              _HalfdayAttendancedays = 0;
+              _Workovertime = 0;
+               _IncomeAmountCount = 0;
+              _ExpendAmountCount = 0;
+               _timecount = 0;
+               judge = "";
+          }
+        
+        
+        
+        
+        
         /// <summary>
         /// 链接到数据库的方法
         /// </summary>
@@ -163,7 +183,7 @@ namespace PersonnelRecode
                     getcmd.Dispose();
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -296,7 +316,7 @@ namespace PersonnelRecode
                     getda.Fill(gettb);
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -329,7 +349,7 @@ namespace PersonnelRecode
                     getda.Fill(gettb);
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -386,7 +406,7 @@ namespace PersonnelRecode
                     getcmd.ExecuteNonQuery();
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -434,7 +454,7 @@ namespace PersonnelRecode
                     getcmd.ExecuteNonQuery();
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -485,7 +505,7 @@ namespace PersonnelRecode
                     getcmd.ExecuteNonQuery();
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -510,10 +530,7 @@ namespace PersonnelRecode
             throw new NotImplementedException();
             }
 
-        public void Dispose()
-            {
-            Dispose();
-            }
+      
         #endregion
 
         #region 查询页面的操作
@@ -594,7 +611,7 @@ namespace PersonnelRecode
 
                     }
              }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -684,7 +701,7 @@ namespace PersonnelRecode
                         }
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -767,7 +784,7 @@ namespace PersonnelRecode
                         }
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -898,7 +915,7 @@ namespace PersonnelRecode
                         }
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -954,7 +971,7 @@ namespace PersonnelRecode
                         }
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -1023,7 +1040,7 @@ namespace PersonnelRecode
                         }
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -1100,7 +1117,7 @@ namespace PersonnelRecode
                     
                  }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 }
@@ -1260,7 +1277,7 @@ namespace PersonnelRecode
                     return 1;
                     }
                 }
-            catch (Exception ex)
+            catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
                 return 0;
@@ -1317,16 +1334,18 @@ namespace PersonnelRecode
                     SendValue[4].Value = Newvalue;
                     getcmd.Parameters.AddRange(SendValue);
                     getcmd.ExecuteNonQuery();
+                    getcmd.Dispose();
                     return 1;
                     }
                 }
             catch (SqlException ex)
                 {
                 ShowExceptionMessage(ex);
+
                 return 0;
                 }
 
-            getcmd.Dispose();
+            
             }
 
         /// <summary>
@@ -1373,6 +1392,7 @@ namespace PersonnelRecode
                     SendValue[5].Value = Newvalue;
                     getcmd.Parameters.AddRange(SendValue);
                     getcmd.ExecuteNonQuery();
+                    getcmd.Dispose();
                     return 1;
                     }
                 }
@@ -1387,7 +1407,7 @@ namespace PersonnelRecode
                 return 0;
                 }
 
-            getcmd.Dispose();
+         
             }
 
         /// <summary>
@@ -1436,6 +1456,7 @@ namespace PersonnelRecode
 
                     getcmd.Parameters.AddRange(SendValue);
                     getcmd.ExecuteNonQuery();
+                    getcmd.Dispose();
                     return 1;
                     }
                 }
@@ -1450,7 +1471,7 @@ namespace PersonnelRecode
                 return 0;
                 }
 
-            getcmd.Dispose();
+         
             }
 
 

@@ -359,7 +359,7 @@ namespace PersonnelRecode
                                     break;
                           
                        }
-            rePortDp.Dispose();
+           //rePortDp.Dispose();
             }
 
         //导出按钮单击事件
@@ -397,38 +397,48 @@ namespace PersonnelRecode
             TBCountMessage.Text = "    从  " + SDate + "  到  " + Edate + "   " +
                 "期间的出勤统计信息为: 正常出勤天数为:  "+rePortDp.NomalAttendancedays +"  天，半天数为:  "+rePortDp.HalfdayAttendancedays +"  个,加班时长为:  "+rePortDp.Workovertime+"  小时";
 
-            DataGridTextColumn dategridcolumn = new DataGridTextColumn();
-            dategridcolumn.Header = "出勤日期";
-            dategridcolumn.Width = 180;
-            dategridcolumn.Binding = new Binding("AttendanceDate");
+            DataGridTextColumn dategridcolumn = new DataGridTextColumn
+                {
+                Header = "出勤日期",
+                Width = 180,
+                Binding = new Binding("AttendanceDate")
+                };
             dategridcolumn.Binding.StringFormat = "yyyy年MM月dd日";
             dgView.Columns.Add(dategridcolumn);
 
-            DataGridTextColumn DGTCattendancestatus = new DataGridTextColumn();
-            DGTCattendancestatus.Header = "出勤状态";
-            DGTCattendancestatus.Width = 120;
-            DGTCattendancestatus.Binding = new Binding("AttendanceStatus");
+            DataGridTextColumn DGTCattendancestatus = new DataGridTextColumn
+                {
+                Header = "出勤状态",
+                Width = 120,
+                Binding = new Binding("AttendanceStatus")
+                };
             dgView.Columns.Add(DGTCattendancestatus);
 
 
-            DataGridTextColumn DGTCattendanceHelper = new DataGridTextColumn();
-            DGTCattendanceHelper.Header = "帮忙对象";
-            DGTCattendanceHelper.Width = 120;
-            DGTCattendanceHelper.Binding = new Binding("Helper");
+            DataGridTextColumn DGTCattendanceHelper = new DataGridTextColumn
+                {
+                Header = "帮忙对象",
+                Width = 120,
+                Binding = new Binding("Helper")
+                };
             dgView.Columns.Add(DGTCattendanceHelper);
 
 
-            DataGridTextColumn DGTCworkovertime = new DataGridTextColumn();
-            DGTCworkovertime.Header = "加班时长";
-            DGTCworkovertime.Width = 105;
-            DGTCworkovertime.Binding = new Binding("WorkOfTime");
+            DataGridTextColumn DGTCworkovertime = new DataGridTextColumn
+                {
+                Header = "加班时长",
+                Width = 105,
+                Binding = new Binding("WorkOfTime")
+                };
             DGTCworkovertime.Binding.StringFormat="0.0";
             dgView.Columns.Add(DGTCworkovertime);
 
-            DataGridTextColumn DGTCattendanceremark = new DataGridTextColumn();
-            DGTCattendanceremark.Header = "出勤备注";
-            DGTCattendanceremark.Width = 300;
-            DGTCattendanceremark.Binding = new Binding("AttendanceRemark");
+            DataGridTextColumn DGTCattendanceremark = new DataGridTextColumn
+                {
+                Header = "出勤备注",
+                Width = 300,
+                Binding = new Binding("AttendanceRemark")
+                };
             dgView.Columns.Add(DGTCattendanceremark);
             SetBtnSaveIsEnable(dgView);
 
@@ -448,41 +458,51 @@ namespace PersonnelRecode
 
             TBCountMessage.Text = "  从 " + SDate + " 到 " + Edate + " 期间来自 " + IncomeSource + "  的进账一共有 " + rePortDp.Timecount + " 次,共" + rePortDp.IncomeAmountCount + " 元";
 
-            DataGridTextColumn DGTCincomedate = new DataGridTextColumn();
-            DGTCincomedate.Header = "进账日期";
-            DGTCincomedate.IsReadOnly = true;
-            DGTCincomedate.Width = 180;
-            DGTCincomedate.Binding = new Binding("IncomeDate");
+            DataGridTextColumn DGTCincomedate = new DataGridTextColumn
+                {
+                Header = "进账日期",
+                IsReadOnly = true,
+                Width = 180,
+                Binding = new Binding("IncomeDate")
+                };
             DGTCincomedate.Binding.StringFormat = "yyyy年/MM月/dd日";
             dgView.Columns.Add(DGTCincomedate);
 
 
-            DataGridTextColumn DGTCincomeamount = new DataGridTextColumn();
-            DGTCincomeamount.Header = "进账金额(元)";
-            DGTCincomeamount.Width = 120;
-            DGTCincomeamount.Binding = new Binding("IncomeAmount");
+            DataGridTextColumn DGTCincomeamount = new DataGridTextColumn
+                {
+                Header = "进账金额(元)",
+                Width = 120,
+                Binding = new Binding("IncomeAmount")
+                };
             DGTCincomeamount.Binding.StringFormat = "C";
             dgView.Columns.Add(DGTCincomeamount);
 
 
-            DataGridTextColumn DGTCincomeSource = new DataGridTextColumn();
-            DGTCincomeSource.Header = "进账来源";
-            DGTCincomeSource.Width = 150;
-            DGTCincomeSource.Binding = new Binding("IncomeSource");
+            DataGridTextColumn DGTCincomeSource = new DataGridTextColumn
+                {
+                Header = "进账来源",
+                Width = 150,
+                Binding = new Binding("IncomeSource")
+                };
             dgView.Columns.Add(DGTCincomeSource);
 
 
 
-            DataGridTextColumn DGTCincometype = new DataGridTextColumn();
-            DGTCincometype.Header = "进账类型";
-            DGTCincometype.Width = 150;
-            DGTCincometype.Binding = new Binding("IncomeaType");
+            DataGridTextColumn DGTCincometype = new DataGridTextColumn
+                {
+                Header = "进账类型",
+                Width = 150,
+                Binding = new Binding("IncomeaType")
+                };
             dgView.Columns.Add(DGTCincometype);
 
-            DataGridTextColumn DGTCincomeremark = new DataGridTextColumn();
-            DGTCincomeremark.Header = "进账备注";
-            DGTCincomeremark.Width = 300;
-            DGTCincomeremark.Binding = new Binding(" IncomeRemark");
+            DataGridTextColumn DGTCincomeremark = new DataGridTextColumn
+                {
+                Header = "进账备注",
+                Width = 300,
+                Binding = new Binding(" IncomeRemark")
+                };
             dgView.Columns.Add(DGTCincomeremark);
             SetBtnSaveIsEnable(dgView);
             }
@@ -501,33 +521,41 @@ namespace PersonnelRecode
 
             TBCountMessage.Text = "  从 "+SDate +"  到 "+Edate+"  期间，总出账: "+rePortDp.ExpendAmountCount + " 元";
 
-            DataGridTextColumn DGTCexpenddate = new DataGridTextColumn();
-            DGTCexpenddate.Header = "支出日期";
-            DGTCexpenddate.Width = 180;
-            DGTCexpenddate.IsReadOnly = true;
-            DGTCexpenddate.Binding = new Binding("ExpendDate");
+            DataGridTextColumn DGTCexpenddate = new DataGridTextColumn
+                {
+                Header = "支出日期",
+                Width = 180,
+                IsReadOnly = true,
+                Binding = new Binding("ExpendDate")
+                };
             DGTCexpenddate.Binding.StringFormat = "yyyy年MM月dd日";
             dgView.Columns.Add(DGTCexpenddate);
 
 
-            DataGridTextColumn DGTCexpendamount = new DataGridTextColumn();
-            DGTCexpendamount.Header = "支出金额(元)";
-            DGTCexpendamount.Width = 120;
-            DGTCexpendamount.Binding = new Binding("ExpendAmount");
+            DataGridTextColumn DGTCexpendamount = new DataGridTextColumn
+                {
+                Header = "支出金额(元)",
+                Width = 120,
+                Binding = new Binding("ExpendAmount")
+                };
             DGTCexpendamount.Binding.StringFormat = "C";
             dgView.Columns.Add(DGTCexpendamount);
 
-            DataGridTextColumn DGTCexpendtype = new DataGridTextColumn();
-            DGTCexpendtype.Header = "支出类型";
-            DGTCexpendtype.Width = 150;
+            DataGridTextColumn DGTCexpendtype = new DataGridTextColumn
+                {
+                Header = "支出类型",
+                Width = 150,
 
-            DGTCexpendtype.Binding = new Binding("ExpendType");
+                Binding = new Binding("ExpendType")
+                };
             dgView.Columns.Add(DGTCexpendtype);
 
-            DataGridTextColumn DGTCexpendremark = new DataGridTextColumn();
-            DGTCexpendremark.Header = "支出备注";
-            DGTCexpendremark.Width = 300;
-            DGTCexpendremark.Binding = new Binding("ExpendRemark");
+            DataGridTextColumn DGTCexpendremark = new DataGridTextColumn
+                {
+                Header = "支出备注",
+                Width = 300,
+                Binding = new Binding("ExpendRemark")
+                };
             dgView.Columns.Add(DGTCexpendremark);
             SetBtnSaveIsEnable(dgView);
 
@@ -547,21 +575,25 @@ namespace PersonnelRecode
 
             TBCountMessage.Text = "  从 "+SDate+"  到 "+Edate +"  期间,自己吃饭的天数为:  "+rePortDp .Timecount+" 天,一共花费: "+rePortDp.ExpendAmountCount +" 元";
 
-             DataGridTextColumn DGTCexpenddate = new DataGridTextColumn();
-             DGTCexpenddate.Header = "支出日期";
-             DGTCexpenddate.Width = 180;
-              
-             DGTCexpenddate.IsReadOnly = true;
-             DGTCexpenddate.Binding = new Binding("ExpendDate");
-             DGTCexpenddate.Binding.StringFormat = "yyyy年MM月dd日";
+            DataGridTextColumn DGTCexpenddate = new DataGridTextColumn
+                {
+                Header = "支出日期",
+                Width = 180,
+
+                IsReadOnly = true,
+                Binding = new Binding("ExpendDate")
+                };
+            DGTCexpenddate.Binding.StringFormat = "yyyy年MM月dd日";
              dgView.Columns.Add(DGTCexpenddate);
 
 
-             DataGridTextColumn DGTCexpendamount = new DataGridTextColumn();
-             DGTCexpendamount.Header = "支出金额(元)";
-             DGTCexpendamount.Width = 120;
-             DGTCexpendamount.Binding = new Binding("EatmealAmount");
-             DGTCexpendamount.Binding.StringFormat = "C";
+            DataGridTextColumn DGTCexpendamount = new DataGridTextColumn
+                {
+                Header = "支出金额(元)",
+                Width = 120,
+                Binding = new Binding("EatmealAmount")
+                };
+            DGTCexpendamount.Binding.StringFormat = "C";
              dgView.Columns.Add(DGTCexpendamount);
 
               SetBtnSaveIsEnable(dgView);

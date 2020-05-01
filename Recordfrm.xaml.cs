@@ -169,7 +169,7 @@ namespace PersonnelRecode
                     txbAmountinput.Clear();
                     txbRemark.Clear();
                     txbIncomeSource.Clear();
-                    RecordDataoptin.Dispose();
+                   // RecordDataoptin.Dispose();
                     }
                 }
             else//选择记录支出
@@ -196,7 +196,7 @@ namespace PersonnelRecode
                          MessageBox.Show("支出信息存储成功", stringManager.GetString("        提示", CultureInfo.CurrentCulture));
                     txbAmountinput.Clear();
                     txbRemark.Clear();
-                    RecordDataoptin.Dispose();
+                   // RecordDataoptin.Dispose();
 
                     }
 
@@ -244,7 +244,7 @@ namespace PersonnelRecode
                    MessageBox.Show("出勤信息存储成功", stringManager.GetString("        提示", CultureInfo.CurrentCulture));
                 txbRemark.Clear();
                 txbhelp.Clear();
-                RecordDataoptin.Dispose();
+                //RecordDataoptin.Dispose();
                 }
 
 

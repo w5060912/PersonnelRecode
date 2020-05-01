@@ -35,9 +35,9 @@
         <DockPanel  Grid.RowSpan="6" Background="LightCyan"/>
 
         <StackPanel Grid.Row="2"  Grid.RowSpan="2" >
-            <Button x:Name="btnRecord" Content="记录" Margin="15,15" Click="btnRecord_Click" />
+            <Button x:Name="btnRecord" Content="记录" Margin="15,15" Click="BtnRecord_Click"  />
             <Button x:Name="btnSerch" Content="查询" Margin="15,15" Click="BtnSerch_Click"/>
-            <Button x:Name="btnAmend" Content="管理" Margin="15,15" Click="btnAmend_Click"/>
+            <Button x:Name="btnAmend" Content="管理" Margin="15,15" Click="BtnAmend_Click" />
         </StackPanel>
 
         <GroupBox Grid.Column="1" Header="设定统计起始日期：" >
@@ -45,7 +45,7 @@
                 <DatePicker Name="startDP" Margin="10,11,0,11" Width="194" FontSize="20"  Style="{StaticResource PickerStyle }">
                      
                 </DatePicker>
-                <Button Name="btnStartDateSetting"   Margin="225,0.684,0,0.848" Width="60" Height="60" BorderThickness="0"  Click="btnStartDateSetting_Click">
+                <Button Name="btnStartDateSetting"   Margin="225,0.684,0,0.848" Width="60" Height="60" BorderThickness="0"  Click="BtnStartDateSetting_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -74,7 +74,7 @@
                     
                 </TextBox>
 
-                <Button x:Name="btnIncomeSourceSetting"  Width="60" Height="60"  Margin="225,0,684,0" Click="btnIncomeSourceSetting_Click">
+                <Button x:Name="btnIncomeSourceSetting"  Width="60" Height="60"  Margin="225,0,684,0" Click="BtnIncomeSourceSetting_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>

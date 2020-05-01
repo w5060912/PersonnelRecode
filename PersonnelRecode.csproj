@@ -22,7 +22,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>F:\aspnet_client\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -48,7 +48,7 @@
     <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -63,7 +63,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PersonnelRecode.App</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
@@ -128,6 +129,9 @@
     <Compile Include="rePortbynew.xaml.cs">
       <DependentUpon>rePortbynew.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StartWindows.xaml.cs">
+      <DependentUpon>StartWindows.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewAlterHistory.xaml.cs">
       <DependentUpon>ViewAlterHistory.xaml</DependentUpon>
     </Compile>
@@ -164,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StartWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewAlterHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +199,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include=".signature.p7s" />
     <None Include="CodeReadme.md" />
     <None Include="LICENSE" />
@@ -209,7 +218,7 @@
     <Content Include="CodeReadme.html">
       <DependentUpon>CodeReadme.md</DependentUpon>
     </Content>
-    <SplashScreen Include="SplashScreen1.png" />
+    <None Include="SplashScreen1.png" />
     <Resource Include="Settings_628px_1183667_easyicon.net.png" />
     <Resource Include="settings_607px_1229017_easyicon.net.png" />
     <Resource Include="ICON\settings_128px_1229017_easyicon.net.ico" />
